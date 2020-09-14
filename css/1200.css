@@ -22,17 +22,17 @@ a {
     background-color: #FFFFFF;
 }
 
-.header>.content{
+.header>.content {
     width: 800px;
     margin: auto auto;
     padding: 1rem;
 }
 
-.header .logo{
+.header .logo {
     float: left;
 }
 
-.header .user-info{
+.header .user-info {
     float: right;
 }
 
@@ -65,27 +65,23 @@ a {
     border-top: 4px #8A8D08 solid;
     box-shadow: 0px 3px 0px 2px rgba(242, 242, 242, 1);
     margin: 1rem;
-    max-height: 200px;
-    overflow: hidden;
     flex-grow: 1;
     flex-basis: 30%;
     min-width: 150px;
-    transition-duration: 1s;
-}
-
-.article:hover {
-    transform: scale(1.05);
 }
 
 .article .title {
-    border-bottom: 4px #8A8D08 solid;
-    margin: 0;
-    padding: 0.2rem 0.5rem;
+    margin: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     font-weight: bold;
+    min-height: 42.2px;
+    border-bottom: 4px #8A8D08 solid;
 }
 
 .article .content {
     padding: 0rem 0.5rem;
+    transition: 3s;
 }
 
 .events {
@@ -115,17 +111,31 @@ a {
     margin: 0.5rem 0rem;
 }
 
-.event ol{
+.event ol {
     list-style: none;
     margin: 0;
     padding: 0;
     font-size: smaller;
 }
 
-.event ol li{
+.event ol li {
     padding: 0.1rem;
 }
 
-.event span{
+.event span {
     font-weight: bold;
+}
+
+[id^="more"] {
+    display: none;
+}
+
+button[id^="button"] {
+    margin: 0.5rem;
+    background-color: #8A8D08;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }

@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" media="screen and (min-device-width: 480px)" href="./styles/480.css" />
-  <link rel="stylesheet" media="screen and (min-device-width: 768px)" href="./styles/768.css" />
-  <link rel="stylesheet" media="screen and (min-device-width: 1200px)" href="./styles/1200.css" />
+  <link rel="stylesheet" media="screen and (min-device-width: 480px)" href="css/480.css" />
+  <link rel="stylesheet" media="screen and (min-device-width: 768px)" href="css/768.css" />
+  <link rel="stylesheet" media="screen and (min-device-width: 1200px)" href="css/1200.css" />
 </head>
 
 <body>
@@ -66,7 +66,7 @@
   ?>
   <div class="header">
     <div class="content">
-      <img class="logo" src="./images/image.png" width="50px" height="50px">
+      <img class="logo" src="images/image.png" width="50px" height="50px">
       <?php
       getUser($user);
       ?>
@@ -90,7 +90,7 @@
       </div>
     </div>
   </div>
-
+  <script src="js/script.js"></script>
 </body>
 
 </html>
