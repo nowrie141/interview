@@ -25,7 +25,7 @@ class Event
 
     public function echo_template(){
         $html = "
-        <div class='event'>
+        <div class='event' id='id='event-$this->id''>
         <a href='$this->url' >
            <h4 class='title'>$this->title</h4>
            <ol>

@@ -38,7 +38,7 @@ class Article
     public function echo_template()
     {
         $html = "
-        <div class='article'>
+        <div class='article' id='article-$this->id'>
         <div class='article-header'>
         <a href='$this->url' >
             <h4 class='title'>$this->title</h4>

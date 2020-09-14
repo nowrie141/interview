@@ -1,3 +1,4 @@
+// Function that passed an ID displays the description of the article with that ID.
 function readMore (id) {
   const btnText = document.querySelector(`#${id}`)
   const dots = document.querySelector(`#dots-${btnText.dataset.id}`)
@@ -7,15 +8,9 @@ function readMore (id) {
     dots.style.display = 'inline'
     btnText.innerHTML = 'Read more'
     moreText.style.display = 'none'
-    setTimeout(function () {
-      moreText.style.opacity = '0'
-    }, 1)
   } else {
     dots.style.display = 'none'
     btnText.innerHTML = 'Read less'
     moreText.style.display = 'inline'
-    setTimeout(function () {
-      moreText.style.opacity = '1'
-    }, 1)
   }
 }

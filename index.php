@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Articles & Events</title>
   <link rel="stylesheet" media="screen and (min-device-width: 480px)" href="css/480.css" />
   <link rel="stylesheet" media="screen and (min-device-width: 768px)" href="css/768.css" />
   <link rel="stylesheet" media="screen and (min-device-width: 1200px)" href="css/1200.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 </head>
 
 <body>
@@ -90,6 +92,31 @@
       </div>
     </div>
   </div>
+  <div class="read-article"></div>
+  <div id="map"></div>
+  <script>
+    var map = L.map('map', {
+      center: [54.183, -3.844],
+      minZoom: 2,
+      zoom: 4.5
+    })
+
+    // load a tile layer
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const markers = JSON.parse('<?php echo json_encode($events) ?>')
+    Object.keys(markers).map(key => {
+      const coordinates = markers[key]['geo'];
+      L.marker([coordinates['lat'], coordinates['lng']]).bindPopup(`
+        <b> ${markers[key]['title']} </b>
+        <p> ${markers[key]['date']} </p>
+        <a href=${markers[key]['url']}>Go to site</a>
+      `)
+        .addTo(map);
+    });
+  </script>
   <script src="js/script.js"></script>
 </body>
 
