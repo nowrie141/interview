@@ -5,9 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Articles & Events</title>
-  <link rel="stylesheet" media="screen and (min-device-width: 480px)" href="css/480.css" />
-  <link rel="stylesheet" media="screen and (min-device-width: 768px)" href="css/768.css" />
-  <link rel="stylesheet" media="screen and (min-device-width: 1200px)" href="css/1200.css" />
+  <link rel="stylesheet" " href="css/styles.css" />
+  <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 </head>
@@ -92,9 +91,44 @@
       </div>
     </div>
   </div>
-  <div class="read-article"></div>
+  <div class="read-article">
+    <div class="content">
+
+    </div>
+  </div>
   <div id="map"></div>
   <script>
+    const modal = document.querySelector('.read-article')
+    const modalContent = modal.querySelector('.content')
+    // Function that passed an ID displays the description of the article with that ID.
+    function readMore(id) {
+      const btnText = document.querySelector(`#${id}`)
+      const dots = document.querySelector(`#dots-${btnText.dataset.id}`)
+      const articleTitle = document.querySelector(`#article-${btnText.dataset.id} .title`)
+      const articleText = document.querySelector(`#article-${btnText.dataset.id} .content`)
+
+      if (window.getComputedStyle(modal, null).getPropertyValue('display') === 'none') {
+        modalContent.innerHTML = `
+            <h2> ${articleTitle.textContent} </h2>
+            <p style='text-align: justify;'>${articleText.textContent}</p>
+            <button>Close</button>
+        `
+        dots.style.display = 'inline'
+        modal.style.display = 'inline'
+      } else {
+        dots.style.display = 'none'
+        modal.style.display = 'none'
+      }
+    }
+
+    modal.addEventListener('click', (e) => {
+
+      if (e.target != modalContent) {
+        modal.style.display = "none";
+      }
+    })
+
+    // Add the map and the markers
     var map = L.map('map', {
       center: [54.183, -3.844],
       minZoom: 2,
@@ -117,7 +151,7 @@
         .addTo(map);
     });
   </script>
-  <script src="js/script.js"></script>
+  <!-- <script src="js/script.js"></script> -->
 </body>
 
 </html>
